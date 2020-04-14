@@ -9,6 +9,12 @@ const AdminIndex = () => import('../views/admin/Index')
 const AdminDashboard = () => import('../views/admin/Dashboard')
 const MatpelData = () => import('../views/admin/matpel/Matpel')
 const MatpelCreate = () => import('../views/admin/matpel/Create')
+const KelasData = () => import('../views/admin/kelas/Kelas')
+const KelasCreate = () => import('../views/admin/kelas/Add')
+const KelasEdit = () => import('../views/admin/kelas/Edit')
+
+const PembelajaranIndex = () => import('../views/pembelajaran/Index')
+const PembelajaranDashboard = () => import('../views/pembelajaran/Dashboard')
 
 Vue.use(Router)
 
@@ -45,6 +51,33 @@ const router = new Router({
 					path: 'matpel/create',
 					name: 'matpel.create',
 					component: MatpelCreate
+				},
+				{
+					path: 'kelas',
+					name: 'kelas.data',
+					component: KelasData
+				},
+				{
+					path: 'kelas/create',
+					name: 'kelas.create',
+					component: KelasCreate
+				},
+				{
+					path: 'kelas/:id/edit',
+					name: 'kelas.edit',
+					component: KelasEdit
+				}
+			]
+		},
+		{
+			path: '/pembelajaran',
+			component: PembelajaranIndex,
+			meta: { requiresAuth: true },
+			children: [
+				{
+					path: ':id',
+					name: 'pembelajaran',
+					component: PembelajaranDashboard
 				}
 			]
 		}

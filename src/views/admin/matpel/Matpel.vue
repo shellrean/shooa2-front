@@ -17,7 +17,7 @@
 		    >
 		    	<template v-slot:cell(actions)="row">
                     <b-dropdown text="Aksi" size="sm" variant="info">
-					    <b-dropdown-item>Hapus</b-dropdown-item>
+					    <b-dropdown-item @click="deleteMatpel(row.item._id)">Hapus</b-dropdown-item>
 					</b-dropdown>
                 </template>
 		    </b-table>
@@ -51,7 +51,28 @@
 			})
 		},
 		methods: {
-			...mapActions('matpel', ['getAllMatpels'])
+			...mapActions('matpel', ['getAllMatpels', 'removeMatpel']),
+			deleteMatpel(id) {
+	            this.$swal({
+	                title: 'Informasi',
+	                text: "Tindakan ini akan menghapus secara permanent!",
+	                icon: 'warning',
+	                showCancelButton: true,
+	                confirmButtonColor: '#3085d6',
+	                cancelButtonColor: '#c7c7c7',
+	                confirmButtonText: 'Iya, Lanjutkan!'
+	            }).then((result) => {
+	                if (result.value) {
+	                    this.removeMatpel(id)
+	                    .then(() => {
+	                        this.getAllMatpels();
+	                    })
+	                    .catch((err) => {
+	                        
+	                    })
+	                }
+	            })
+	        }
 		},
 		created() {
 			this.getAllMatpels();

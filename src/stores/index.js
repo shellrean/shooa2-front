@@ -5,6 +5,8 @@ import auth from './auth.js'
 import user from './user.js'
 import materi from './materi.js'
 import matpel from './matpel.js'
+import kelas from './kelas.js'
+import jurusan from './jurusan.js'
 
 Vue.use(Vuex)
 
@@ -13,7 +15,9 @@ export default new Vuex.Store({
   	auth,
   	user,
     materi,
-    matpel
+    matpel,
+    kelas,
+    jurusan
   },
   state: {
     errors: [],

@@ -10,7 +10,7 @@
 								<router-link :to="{ name: 'admin' }" class="side-class nav-link">
 						          <i class="cil-monitor"></i> Dashboard
 						        </router-link>
-						        <router-link to="/" class="side-class nav-link">
+						        <router-link :to="{ name: 'kelas.data' }" class="side-class nav-link">
 						          <i class="cil-home"></i> Kelas
 						        </router-link>
 						        <router-link :to="{ name: 'matpel.data' }" class="side-class nav-link">

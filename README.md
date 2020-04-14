@@ -1,4 +1,4 @@
-# vlamsrv
+# Shooa LMS
 
 ## Project setup
 ```
