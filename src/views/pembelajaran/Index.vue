@@ -8,11 +8,18 @@
                             Ruang diskusi
                         </div>
                         <div class="card-body">
-                            <ul class="list-group">
-                              <li class="list-group-item">Trigonometri K91 <span class="badge badge-success">Online</span></li>
-                              <li class="list-group-item">PKN Warganegara <span class="badge badge-light">Offline</span></li>
-                              <li class="list-group-item">Puisi dan Prosa <span class="badge badge-light">Offline</span></li>
+                            <ul class="list-group" v-if="diskusis">
+                              <li class="list-group-item" v-for="diskusi in diskusis">
+                                <router-link :to="{ name: 'diskusi.while', params: { id: diskusi._id }}" >{{ diskusi.title }}  </router-link>
+                                <span class="badge" :class="{ 'badge-active' : diskusi.status }"> {{ diskusi.status ? 'Online' : 'Offline' }}</span>
+                              </li>
                             </ul>
+                            <p v-else>
+                                Loading...
+                            </p>
+                            <template v-if="diskusis && diskusis.length == 0">
+                                <img src="/img/nodata.svg" style="max-width: 100px">
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -36,13 +43,27 @@
         computed: {
             ...mapState('kelas', {
                 kelas: state => state.kelas
+            }),
+            ...mapState('materi', {
+                materis: state => state.mymateris
+            }),
+            ...mapState('diskusi', {
+                diskusis: state => state.diskusis
             })
         },
         methods: {
-            ...mapActions('kelas',['getKelas'])
+            ...mapActions('kelas',['getKelas']),
+            ...mapActions('materi', ['getMyMatter']),
+            ...mapActions('diskusi',['getKelasDiskusi'])
         },
-        created() {
-            this.getKelas(this.$route.params.id)
+        async created() {
+            try {
+                this.getKelas(this.$route.params.id)
+                this.getMyMatter(this.$route.params.id);
+                this.getKelasDiskusi(this.$route.params.id);
+            } catch (err) {
+
+            }
         }
     }
 </script>

@@ -3,7 +3,7 @@
 		<b-navbar toggleable="lg" type="light" variant="white" class="shadow">
 			<div class="container">	
 				<b-navbar-brand>
-					<img src="/img/brand/logo.ico" class="d-inline-block" style="max-width: 40px;">
+					<img src="/img/brand/logo.png" class="d-inline-block" style="max-width: 40px;">
 				</b-navbar-brand>
 
 				<b-navbar-toggle target="nav-collapse" class="text-dark"></b-navbar-toggle>
@@ -12,9 +12,6 @@
 					<b-navbar-nav class="">
 						<router-link to="/" class="nav-link">
 				          <i class="cil-globe-alt"></i> Dashboard
-				        </router-link>
-				        <router-link to="/" class="nav-link">
-				          <i class="cil-notes"></i> Catatan
 				        </router-link>
 				        <router-link v-if="$role('admin')" :to="{ name: 'admin' }" class="nav-link">
 				        	<i class="cil-layers"></i> Administrasi

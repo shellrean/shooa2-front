@@ -7,6 +7,8 @@ import materi from './materi.js'
 import matpel from './matpel.js'
 import kelas from './kelas.js'
 import jurusan from './jurusan.js'
+import comment from './comment.js'
+import diskusi from './diskusi.js'
 
 Vue.use(Vuex)
 
@@ -17,7 +19,9 @@ export default new Vuex.Store({
     materi,
     matpel,
     kelas,
-    jurusan
+    jurusan,
+    comment,
+    diskusi
   },
   state: {
     errors: [],

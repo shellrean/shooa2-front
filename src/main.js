@@ -16,6 +16,8 @@ Vue.use(Notifications)
 Vue.use(VueSweetalert2)
 Vue.mixin(Role)
 
+Vue.use(require('vue-moment'));
+
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 import { mapActions, mapGetters } from 'vuex'
@@ -35,6 +37,14 @@ new Vue({
    created() {
    	if (this.isAuth) {
    		this.getUserLogin()
+      .catch((err) => {
+        this.$notify({
+          group: 'foo',
+          title: 'Error',
+          type: 'error',
+          text: 'Ops.. terjadi kesalahan'
+        })
+      })
    	}
    }
 })

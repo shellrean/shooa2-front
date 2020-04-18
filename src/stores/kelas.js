@@ -6,7 +6,8 @@ const state = () => ({
 		name: '',
 		grade: '',
 		_major: [],
-		_subjects: []
+		_subjects: [],
+		_teachers: []
 	}
 })
 
@@ -19,7 +20,8 @@ const mutations = {
 			name: payload.name,
 			grade: payload.grade,
 			_major: payload._major,
-			_subjects: payload._subjects
+			_subjects: payload._subjects,
+			_teachers: payload._teachers
 		}
 	},
 	CLEAR_FORM(state) {
@@ -27,7 +29,8 @@ const mutations = {
 			name: '',
 			grade: '',
 			_major: [],
-			_subjects: []
+			_subjects: [],
+			_teachers: []
 		}
 	}
 }
@@ -45,6 +48,18 @@ const actions = {
 			.catch((err) => {
 				commit('SET_LOADING', false, { root: true })
 				reject(err)
+			})
+		})
+	},
+	getTeacherKelas({ commit }) {
+		return new Promise((resolve, reject) => {
+			$axios.get('classroom/teacher')
+			.then((response) => {
+				commit('ASSIGN_DATAS', response.data)
+				resolve(response)
+			})
+			.catch((err) => {
+				reject(err);
 			})
 		})
 	},

@@ -3678,6 +3678,7 @@ label.error {
 .navbar-header {
   padding: 0px 15px; }
   .navbar-header .dropdown-toggle::after {
+    display: none;
     margin-left: 0; }
 
 .profile-pic:hover, .profile-pic:focus {
@@ -8962,7 +8963,7 @@ body {
 /*# sourceMappingURL=atlantis.css.map */
 .shadow {
       -webkit-box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-        box-shadow: .1rem .2rem 0.324rem rgba(0,0,0,.15)!important;
+      box-shadow: .01rem .01rem 0.324rem rgba(0,0,0,.15)!important;
   }
 .shadow-less {
   box-shadow: unset !important;
@@ -8978,3 +8979,12 @@ body {
     background: linear-gradient(-45deg, #2d97e8, #5ebcf3) !important;
 }
 .card-bg{background-image:url(../img/bg-card.png);background-repeat:no-repeat;background-position:top right}
+a:hover {
+  text-decoration: none !important;
+}
+
+.bordered-pad {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}

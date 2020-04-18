@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="input-group">
-                                <button class="btn btn-primary btn-block" :disabled="isLoading" type="submit">
+                                <button class="btn btn-info btn-block" :disabled="isLoading" type="submit">
                                     {{ isLoading ? 'Loading...' : 'Login' }}
                                 </button>
                             </div>

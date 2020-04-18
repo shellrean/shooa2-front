@@ -33,6 +33,18 @@
 			:taggable="true"
 			v-if="matpels"></multiselect>
 		</div>
+		<div class="form-group">
+			<label>Guru</label>
+			<multiselect 
+			v-model="kelas._teachers"
+			placeholder="Guru"
+			value="_id" 
+			label="name" track-by="_id" 
+			:options="teachers"
+			:multiple="true"
+			:taggable="true"
+			v-if="teachers"></multiselect>
+		</div>
 	</div>
 </template>
 <script>
@@ -55,15 +67,20 @@
 			}),
 			...mapState('matpel', {
 				matpels: state => state.matpels
+			}),
+			...mapState('user', {
+				teachers: state => state.users
 			})
 		},
 		methods: {
 			...mapActions('jurusan',['getAllJurusan']),
-			...mapActions('matpel', ['getAllMatpels'])
+			...mapActions('matpel', ['getAllMatpels']),
+			...mapActions('user',['getAllUser'])
 		},
 		created() {
 			this.getAllJurusan()
 			this.getAllMatpels()
+			this.getAllUser('teacher')
 		}
 	}
 </script>

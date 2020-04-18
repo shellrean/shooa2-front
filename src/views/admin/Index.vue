@@ -1,10 +1,9 @@
 <template>
   	<section v-if="$role('admin')">
         <div class="container">
-        	<div class="row mt-5">
+        	<div class="row mt-4">
 				<div class="col-md-4">
 					<div class="card shadow">
-						<div class="card-header"></div>
 						<div class="card-body">
 							<b-nav vertical>
 								<router-link :to="{ name: 'admin' }" class="side-class nav-link">
@@ -16,12 +15,11 @@
 						        <router-link :to="{ name: 'matpel.data' }" class="side-class nav-link">
 						          <i class="cil-description"></i> Matpel
 						        </router-link>
-						        <router-link to="/" class="side-class nav-link">
+						        <router-link :to="{ name: 'guru.data' }" class="side-class nav-link">
 						          <i class="cil-education"></i> Guru
 						        </router-link>
 							</b-nav>	
 						</div>
-						<div class="card-footer"></div>
 					</div>	
 				</div>
 				<div class="col-md-8">
@@ -50,9 +48,3 @@
 		}
 	}
 </script>
-<style type="text/css">
-	.side-class.router-link-exact-active {
-		background: #f1f1f1;
-		border-radius: 20px;
-	}
-</style>
